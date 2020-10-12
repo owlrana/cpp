@@ -1,4 +1,3 @@
-# cpp
-Competitive Programming Progress in C++
+Competitive Programming Progress
 
 Add a folder with your name to track your performance with your friends
