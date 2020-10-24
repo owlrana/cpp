@@ -12,4 +12,11 @@ int main() {
 
     cout<< "You are "<< age <<" years old!";
     return 0;
-}
+
+    // get a string of text instead of a char
+    string name;
+    cout<<"Enter your name";
+    getline(cin, name);
+
+    cout<< "You are "<< name << ", hi!";
+}   
