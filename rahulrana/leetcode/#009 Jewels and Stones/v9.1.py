@@ -2,12 +2,9 @@
 # https://leetcode.com/problems/jewels-and-stones/
 
 def numJewelsInStones(J, S):
-    jewels = []
     count = 0
-    for char in J:
-        jewels.append(char)
     for char in S:
-        if char in jewels:
+        if char in J:
             count += 1
     return count
 
@@ -15,5 +12,5 @@ J = "aA"
 S = "aAAbbbb"
 print(numJewelsInStones(J, S))
 
-# 32 ms; faster than 50%
+# 28 ms; faster than 78%
 # 14 MB; less than 26%
