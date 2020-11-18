@@ -4,7 +4,8 @@ def decompressRLElist(nums):
     RLE = []
     i = 0
     while i < len(nums):
-        for j in range(nums[i]):
+        x = Counter(nums[i])
+        while x:
             RLE.append(nums[i+1])
         i += 2
     return RLE
