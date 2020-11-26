@@ -17,3 +17,6 @@ def reverseBits(n):
 
 n = 43261596
 print(reverseBits(n))
+
+# 36 ms; faster than 22%
+# 14 MB; less than 96%
