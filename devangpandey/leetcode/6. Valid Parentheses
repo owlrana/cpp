@@ -1,0 +1,59 @@
+#Leetcode link: https://leetcode.com/problems/valid-parentheses/
+To check whether it is a given set of valid parentheses.
+
+class Solution
+{
+public:
+        bool isValid(string s)
+        {
+                stack<char> par;
+                int flag = 0;
+                for (int i = 0; i < s.length(); i++)
+                {
+                        char temp;
+                        if (s[i] == '(' || s[i] == '{' || s[i] == '[')
+                        { par.push(s[i]);
+                         
+                        }
+                        else
+                        {
+                                if (!par.empty())
+                                {
+                                        temp = par.top();
+                                        par.pop();
+                                    cout<<temp;
+                                        if (s[i] == ')')
+                                        {
+                                                if (temp != '(')
+                                                        flag = 1;
+                                        }
+                                        else if (s[i] == '}')
+                                        {
+                                                if (temp != '{')
+                                                        flag = 1;
+                                        }
+
+                                        else if (s[i] == ']')
+                                        {
+                                                if (temp != '[')
+                                                        flag = 1;
+                                        }
+                                }
+                            else
+                                flag=1;
+                                
+                        }
+                }
+            
+            if(flag==1)
+                return false;
+            
+            else
+            {
+                if(!par.empty())
+                    return false;
+                else return true;
+}
+            
+        }
+};
