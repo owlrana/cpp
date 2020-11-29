@@ -1,6 +1,6 @@
 I managed to execute it within 236ms. Would love to hear your solutions on this one.
 
-#Leetcode link: https://leetcode.com/problems/sum-of-all-odd-length-subarrays/submissions/
+#Leetcode link: https://leetcode.com/problems/sum-of-all-odd-length-subarrays/
 
 class Solution {
 public:
