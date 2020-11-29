@@ -1,5 +1,5 @@
 #Leetcode link: https://leetcode.com/problems/valid-parentheses/
-To check whether it is a given set of valid parentheses.
+To check whether it is a set of valid parentheses.
 
 class Solution
 {
