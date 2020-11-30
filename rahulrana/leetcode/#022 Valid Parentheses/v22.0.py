@@ -31,3 +31,6 @@ def isValid(str):
     return True
 str = "{()}[]"
 print(isValid(str))
+
+# 28 ms; faster than 79%
+# 14.4 MB; less than 53%
