@@ -1,0 +1,28 @@
+#This was an algoexpert.io question, but I found it a little challenging.. so I uploaded it here.
+
+# Link: https://www.algoexpert.io/questions/Validate%20Subsequence
+
+bool isValidSubsequence(vector<int> array, vector<int> sequence) {
+  int flag = 1;
+	vector<int>::iterator it,beg;
+	
+	for(int x: sequence)
+	{
+		beg=array.begin();
+		it = find(array.begin(),array.end(),x);
+		if(it!=array.end())
+		{
+			array.erase(beg,it+1);
+		}
+		else
+			{
+			flag=0;
+			break;
+		}
+	}
+	if (flag==0)
+  return false;
+	else
+		return true;
+}
+
