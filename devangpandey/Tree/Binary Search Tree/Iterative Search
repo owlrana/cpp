@@ -1,0 +1,18 @@
+bool iSearch(Node *root, int key)
+{
+    Node *t = root;
+    while (t != NULL)
+    {
+        if (key == t->data)
+            return true;
+        else if (key < t->data)
+        {
+            t = t->lchild;
+        }
+        else if (key > t->data)
+        {
+            t = t->rchild;
+        }
+    }
+    return false;
+}
