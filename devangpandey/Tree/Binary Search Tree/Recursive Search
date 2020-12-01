@@ -1,0 +1,19 @@
+Node *rSearch(Node *root, int key)
+{
+    Node *t = root;
+    if (t == NULL)
+        return NULL;
+
+    if (key == t->data)
+    {
+        return t;
+    }
+    else if (key < t->data)
+    {
+        return rSearch(t->lchild, key);
+    }
+    else if (key > t->data)
+    {
+        return rSearch(t->rchild, key);
+    }
+}
