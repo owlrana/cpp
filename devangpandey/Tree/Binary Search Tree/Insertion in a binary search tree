@@ -1,0 +1,25 @@
+void insertBST(Node *root, int key)
+{   
+    Node* temp_root=root;
+    Node* p=NULL;
+    while (temp_root != NULL)
+    {
+        p = temp_root;
+        if (key > temp_root->data)
+            temp_root = temp_root->rchild;
+        else if (key < temp_root->data)
+            temp_root = temp_root->lchild;
+    }
+    Node* temp;
+    temp = new Node();
+    temp->lchild=temp->rchild=NULL;
+    temp->data=key;
+    if (temp->data < p->data)
+    {
+        p->lchild = temp;
+    }
+    else 
+    {
+        p->rchild = temp;
+    }
+}

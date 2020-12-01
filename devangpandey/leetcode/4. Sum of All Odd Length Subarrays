@@ -1,0 +1,38 @@
+I managed to execute it within 236ms. Would love to hear your solutions on this one.
+
+#Leetcode link: https://leetcode.com/problems/sum-of-all-odd-length-subarrays/
+
+class Solution {
+public:
+    int sumOddLengthSubarrays(vector<int>& arr) {
+        auto it = arr.begin();
+        vector<int> arr2;
+        int end = 3,temp_end;
+        int sum_1=0;
+        sum_1=accumulate(arr.begin(),arr.end(),0);
+        vector<int>::iterator end_check;
+        while (end <= arr.size())
+        {
+               
+                temp_end=end;
+                for (int x = 0; x < arr.size(); x++)
+                {
+                
+                        end_check=arr.begin()+temp_end;
+                        if(end_check>arr.end())
+                        break;
+                        vector<int> temp_arr;
+                        copy(arr.begin() + x, arr.begin() + temp_end, back_inserter(temp_arr));
+                        for (int it : temp_arr)
+                        {
+                                sum_1+=it;
+                        }
+                        cout << endl;
+                        temp_end++;
+                }
+                end = end + 2;
+        }
+       return sum_1;
+        
+    }
+};
