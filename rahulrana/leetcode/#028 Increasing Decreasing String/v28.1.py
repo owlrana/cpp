@@ -1,25 +1,24 @@
-# https://leetcode.com/problems/increasing-decreasing-string/
+# https://leetcode.com/problems/increasing-decreasing-string/submissions/
 
-def sortString(s: str) -> str:
+def sortString(s):
     result = ''
     counter = {}
     for char in s:
         counter[char] = counter.get(char, 0) + 1
-    # will be run for no. of unique chrs
-    while len(result) != len(s):
-        # alphabetical append
+    while True:
         for key in sorted (counter.keys()):
             if counter[key] > 0:
                 result += key
                 counter[key] -= 1
-        # reverse append
         for key in sorted (counter.keys(), reverse = True):
             if counter[key] > 0:
                 result += key
                 counter[key] -= 1
-    return result
+        if len(result) >= len(s):
+            return result
+
 s = "aaaabbbbcccc"
 print(sortString(s))
 
 # 52ms; faster than 96%
-# 14.3MB; less than 12%
+# 13.9MB; less than 98%
