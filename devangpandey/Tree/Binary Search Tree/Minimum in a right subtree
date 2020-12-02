@@ -1,0 +1,10 @@
+//To find minimum in a right subtree.
+
+Node *findMin(Node *p)
+{
+    while (p->lchild != NULL)
+    {
+        p = p->lchild;
+    }
+    return p;
+}

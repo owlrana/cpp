@@ -1,0 +1,50 @@
+Node *deleteKey(Node *p, int key)
+{
+    if (p == NULL)
+        return p;
+
+    else if (key > p->data)
+        p->rchild = deleteKey(p->rchild, key); //Modifying the right subtree
+
+    else if (key < p->data)
+        p->lchild = deleteKey(p->lchild, key); //Modifying the left subtree
+
+    else //Found the key to be deleted
+    {
+        //Case:1 The node with no child
+        if (p->lchild == NULL && p->rchild == NULL)
+        {
+            delete p;
+            return NULL;
+        }
+
+        //Case 2.1: The node with a single child (right).
+        else if (p->lchild == NULL)
+        {
+            Node *temp = p;
+            p = p->rchild;
+            delete temp;
+            return p;
+        }
+
+        // Case 2.2: The node with a single child (left).
+        else if (p->rchild == NULL)
+        {
+            Node *temp = p;
+            p = p->lchild;
+            delete (temp);
+            return p;
+        }
+
+        //Case 3: The node with two children.
+        else
+        {
+
+            Node *minSubtree = findMin(p->rchild);
+            p->data = minSubtree->data;
+            p->rchild = deleteKey(p->rchild, minSubtree->data);
+            return p;
+        }
+    }
+    return p;
+}
