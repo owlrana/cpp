@@ -16,3 +16,6 @@ def reverseWords(s):
 
 s = "Let's take LeetCode contest"
 print(reverseWords(s))
+
+# 128ms; faster than 6%
+# 14.8MB; less than 32%
