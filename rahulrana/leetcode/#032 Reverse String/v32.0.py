@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/reverse-string/
-
+# git check only - ignore
 def reverseString(s):
     s = list(s)
     length = len(s)
