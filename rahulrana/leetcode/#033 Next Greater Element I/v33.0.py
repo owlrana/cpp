@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/next-greater-element-i/
 
+# git check
+
 def nextGreaterElement(nums1, nums2):
     nextGE = []
     for i in range(len(nums1)):
