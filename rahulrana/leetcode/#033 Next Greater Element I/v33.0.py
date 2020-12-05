@@ -19,4 +19,4 @@ nums2 = [1,2,3,4]
 print(nextGreaterElement(nums1, nums2))
 
 # 88ms; faster than 14%
-# 14.4MB; less than 37%
+# 14.4MB; less than 78%
