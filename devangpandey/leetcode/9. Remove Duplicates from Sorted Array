@@ -1,0 +1,19 @@
+Leetcode link: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+
+Runtime: 28 ms
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        
+        set<int> answer;
+        for (int i=0; i<nums.size(); i++) {
+            int temp=nums[i];
+           answer.insert(temp);
+        }
+        cout<<answer.size();
+        int end=0;
+        for(auto it: answer)
+            nums[end++]=it;
+        return answer.size();
+    }
+};
