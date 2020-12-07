@@ -1,0 +1,90 @@
+Leetcode link: https://leetcode.com/problems/merge-two-sorted-lists/
+
+
+// // Definition for singly-linked list.
+// struct ListNode
+// {
+//     int val;
+//     ListNode *next;
+//     ListNode() : val(0), next(nullptr) {}
+//     ListNode(int x) : val(x), next(nullptr) {}
+//     ListNode(int x, ListNode *next) : val(x), next(next) {}
+// };
+
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(l1==NULL||l2==NULL)
+        {
+            if(l1)
+                return l1;
+            else return l2;
+        }
+        ListNode* head=NULL;
+        ListNode* curr=head;
+        ListNode* temp;
+        while(l1!=NULL && l2!=NULL)
+        {
+            temp= new ListNode();
+            if(l1->val<=l2->val)                                //1->2->4
+            {                                                   // 1->3->4 
+                 if(head==NULL)
+                {
+                    temp->val= l1->val;
+                    temp->next=NULL;
+                    head=curr=temp;
+                }
+                else{
+                     temp->val= l1->val;
+                    temp->next=NULL;
+                    curr->next=temp;
+                    curr=temp;
+                }
+                l1=l1->next;
+            }
+            else{
+                if(head==NULL)
+                {
+                    temp->val= l2->val;
+                    temp->next=NULL;
+                    head=curr=temp;
+                }
+                else{
+                     temp->val= l2->val;
+                    temp->next=NULL;
+                    curr->next=temp;
+                    curr=temp;
+                }
+                l2=l2->next;
+            }
+            
+        }
+        
+        if(l1!=NULL)
+        {
+            while(l1!=NULL)
+            {
+                temp=new ListNode();
+                 temp->val= l1->val;
+                    temp->next=NULL;
+                    curr->next=temp;
+                    curr=temp;
+                l1=l1->next;
+            }
+        }
+        if(l2!=NULL)
+        {
+            while(l2!=NULL)
+            {
+                temp=new ListNode();
+                 temp->val= l2->val;
+                    temp->next=NULL;
+                    curr->next=temp;
+                    curr=temp;
+                l2=l2->next;
+            }
+        }
+        return head;
+    }
+    
+};
