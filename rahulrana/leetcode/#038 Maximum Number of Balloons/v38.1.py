@@ -15,5 +15,5 @@ def maxNumberOfBalloons(text):
 text = "slaolnblo"
 print(maxNumberOfBalloons(text))
 
-# 28ms; faster than 89%
-# 14.4MB; less than 22%
+# 28ms; faster than 90%
+# 14.4MB; less than 21%
