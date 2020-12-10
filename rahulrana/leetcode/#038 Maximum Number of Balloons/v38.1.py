@@ -8,8 +8,8 @@ def maxNumberOfBalloons(text):
         if char in fTable:
             fTable[char] += 1
     # now divide by 2 to know how many words formed
-    fTable['l'] = fTable['l']/2
-    fTable['o'] = fTable['o']/2
+    fTable['l'] = fTable['l']//2 # // is floor division so we always get the int
+    fTable['o'] = fTable['o']//2
     return min(fTable.values())
 
 text = "slaolnblo"
