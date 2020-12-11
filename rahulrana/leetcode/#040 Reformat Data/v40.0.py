@@ -12,11 +12,11 @@ def reformatDate(date):
     month_no = month_list.index(d_struct[1]) + 1
     if month_no < 10:
             month_no = '0' + str(month_no)
-    ref_date = str(d_struct[2]) + '-' + str(month_no) + '-' + str(d_struct[0])
+    ref_date = d_struct[2] + '-' + month_no + '-' + d_struct[0]
     return ref_date
 
 date = "1st Mar 2052"
 print(reformatDate(date))   
 
 # 24ms; faster than 93%
-# 14.2MB; less than 16%
+# 14.3MB; less than 5%
