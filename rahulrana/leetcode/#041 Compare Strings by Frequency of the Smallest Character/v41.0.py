@@ -1,10 +1,10 @@
 # https://leetcode.com/problems/compare-strings-by-frequency-of-the-smallest-character/
 
 def f(word):
-    ordinals = []
+    minimum = 130 # anything greater than normal english lowercases
     for char in word:
-        ordinals.append(ord(char))
-    minimum = min(ordinals)
+        if ord(char) < minimum:
+            minimum = ord(char)
     frequency = 0
     for i in range(len(word)):
         if word[i] == chr(minimum):
