@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+       int x= s.size();
+        x=x-1;
+        for(int i=0;i<s.size()/2;i++)
+        {
+            char swap;
+            swap=s[i];
+            s[i]=s[x];
+            s[x--]=swap;           
+        }
+        for(int i:s)
+        {
+            cout<<(char)i;
+        }
+        
+    }
+};
