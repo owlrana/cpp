@@ -1,0 +1,21 @@
+Leetcode link:  https://leetcode.com/problems/search-insert-position/
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        vector<int>::iterator it;
+        it= find(nums.begin(),nums.end(),target);
+        if(it!=nums.end())
+            return it-nums.begin();
+        else{
+            int i=0;
+            while(nums[i]<target)
+            {       
+                i++;
+                if(i==nums.size())
+                    break;
+            }
+            return i;
+        }
+    }
+};
