@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d189587-2009-4789-8fc6-7d5632585bca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CFCJava/com/competitive/Lecture2/LeapYear.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CFCJava/com/competitive/Lecture2/LoopExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lecture2/LeapYear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lecture2/LoopExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java/Java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CFCJava/com/competitive/Lecture2/SimpleInterest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/competitive/Lecture2/SimpleInterest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/competitive/Lecture3/SimpleInterest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +84,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager" selected="Application.SimpleInterest">
+  <component name="RunManager" selected="Application.Swap">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.competitive.Main" />
       <module name="CFCJava" />
@@ -109,11 +96,37 @@
       </method>
     </configuration>
     <configuration name="SimpleInterest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.competitive.Lecture2.SimpleInterest" />
+      <option name="MAIN_CLASS_NAME" value="com.competitive.Lecture3.SimpleInterest" />
       <module name="CFCJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.competitive.Lecture2.*" />
+          <option name="PATTERN" value="com.competitive.Lecture3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleInterestMethod" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.competitive.Lecture3.SimpleInterestMethod" />
+      <module name="CFCJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.competitive.Lecture3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Swap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.competitive.Lecture3.Swap" />
+      <module name="CFCJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.competitive.Lecture3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,10 +137,14 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.SimpleInterest" />
+      <item itemvalue="Application.SimpleInterestMethod" />
+      <item itemvalue="Application.Swap" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Swap" />
         <item itemvalue="Application.SimpleInterest" />
+        <item itemvalue="Application.SimpleInterestMethod" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
