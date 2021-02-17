@@ -1,3 +1,7 @@
 # Hello world program from Windows
 
-print("Hello, World!")
+def helloworld():
+    print("Hello, World!")
+
+if __name__ == "__main__":
+    helloworld()
