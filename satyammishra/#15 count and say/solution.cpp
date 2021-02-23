@@ -10,6 +10,8 @@ string, replace the counts with a number and concatenate every saying.
 
 Given a positive integer n, return the nth term of the count-and-say sequence.*/
 
+
+
 class Solution {
 public:
     string countAndSay(int n) {
