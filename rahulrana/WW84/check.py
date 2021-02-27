@@ -1,16 +1,21 @@
-def sieve(n):
-    # compute primes using sieve of Eratosthenes
+def equationChecker(a, b, c, sign):
+    answer = []
+    for i in range (len(a)):
+        if sign[i] == '+':
+            if a[i] + b[i] == c[i]:
+                answer.append(True)
+            else:
+                answer.append(False)
+        elif sign[i] == '-':
+            if a[i] - b[i] == c[i]:
+                answer.append(True)
+            else:
+                answer.append(False)
+    return(answer)
 
-    x = [1]*n
-    x[1] = 0
+a = [19, -13, -19, -3, -6, -6]
+b = [1, 18, 8, -11, 20, -3]
+c = [20, 5, -11, 8, -25, -24]
+sign = ['+', '+', '+', '-', '-', '+']
 
-    for i in range(2, n//2):
-        j = 2*i
-        while j < n:
-            x[j] = 0
-            j = j+1
-    return x
-
-n = 5
-n = int(n) 
-print(sieve(n))
+print(equationChecker(a,b,c,sign))
