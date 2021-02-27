@@ -8,6 +8,8 @@ while reps < 10:
     print()
     reps += 1
 
+# Given below is the python pattern observed
+
 # # # # # # # # # # 
 # # # # # # # # # #
 # # # # # # # # # #
