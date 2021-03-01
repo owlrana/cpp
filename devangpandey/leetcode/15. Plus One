@@ -1,0 +1,15 @@
+https://leetcode.com/problems/plus-one/submissions/
+
+Runtime : 32 ms
+
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        strings = [str(integers) for integers in digits]
+        a_string = "".join(strings)
+        anum = int(a_string)
+        anum=anum+1
+        digits= [int(s) for s in str(anum)]
+        return digits
+        
+        
