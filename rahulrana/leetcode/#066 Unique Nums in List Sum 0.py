@@ -9,5 +9,5 @@ class Solution:
         if len(lst) != n:
             lst.append(0)
         return lst
-        
+
 print(Solution.sumZero(2))
