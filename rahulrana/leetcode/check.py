@@ -1,13 +1,24 @@
 # Check file
 
 class Solution:
-    def sumZero(n: int):
-        lst = []
-        for i in range(1, n//2 + 1):
-            lst.append(i)
-            lst.append(i*(-1))
-        if len(lst) != n:
-            lst.append(0)
-        return lst
-        
-print(Solution.sumZero(2))
+    def largeGroupPositions(s):
+        n = len(s)
+        if n < 3:
+            return []
+        intervals = []
+        i = 0
+        j = 1
+        count = 1
+        while i < n-1:
+            if s[i] == s[j]:
+                count += 1
+                j += 1
+            else:
+                if count >= 3:
+                    intervals.append([i,j-1])
+                i = j
+                j += 1
+                count = 1
+        return intervals
+
+print(Solution.largeGroupPositions("aa"))
