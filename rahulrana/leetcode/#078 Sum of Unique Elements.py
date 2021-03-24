@@ -8,7 +8,7 @@ class Solution:
         for num in nums:
             freq[num] = freq.get(num, 0) + 1
         sum = 0
-        for key,value in freq.items():
+        for key in freq.items():
             if freq[key] == 1:
                 sum += int(key)
         return sum
