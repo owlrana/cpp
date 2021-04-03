@@ -1,39 +1,30 @@
-# Check file
+class Phone:
+    def __init__(self, price, brand, camera):
+        print ("Inside phone constructor")
+        self.__price = price
+        self.brand = brand
+        self.camera = camera
 
-# to check how the fuck 'is' is working in python
+    def buy(self):
+        print ("Buying a phone")
 
+    def return_phone(self):
+        print ("Returning a phone")
 
-class Human():
-    def __init__(self, name, age, height, weight, score):
-        self.name = name
-        self.age = age
-        self.height = height
-        self.weight = weight
-        self.score = score
-    
-    def __str__(self):
-        string = str(self.name) + " is a man."
-        return string
+class FeaturePhone(Phone):
+    pass
 
-choice = True
-lst = []
-i = 0
+class SmartPhone(Phone):
+    def __init__(self, price, brand, camera, os, ram):
+        super().__init__(price, brand, camera)
+        self.os = os
+        self.ram = ram
+        print ("Inside smartphone constructor")
 
-while i < 2:
-    mrbean = Human
-    name = input("Enter the name: ")
-    print("Enter the age of ", name, ": ")
-    age = input()
-    print("Enter the height of ", name, ": ")
-    height = input()
-    print("Enter the weight of ", name, ": ")
-    weight = input()
-    print("Enter the score of ", name, ": ")
-    score = input()
-    choice = False
-    man = mrbean(name, age, height, weight, score)
-    lst.append(man)
-    i += 1
+    def buy(self):
+        print ("Buying a smartphone")
 
-for humans in lst:
-    print(humans)
+s=SmartPhone(20000, "Samsung", 12, "Android", 2)
+
+print(s.os)
+print(s.brand)
