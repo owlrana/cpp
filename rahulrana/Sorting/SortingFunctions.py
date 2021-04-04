@@ -46,6 +46,41 @@ def insertionSort(arr):
         arr[j+1] = key
     return arr
 
+# Merge Sort
+def mergeSort(arr):
+    pass
+    if len(arr) > 1:
+        # to divide the array into parts
+        left_arr = arr[:len(arr)//2]
+        right_arr = arr[len(arr)//2:]
+
+        # then call recursively for both parts
+        mergeSort(left_arr)
+        mergeSort(right_arr)
+
+        i = 0 # for left array
+        j = 0 # for right array
+        k = 0 # for the arr's insertion position
+        # merge both the arrays
+        while i < len(left_arr) and j < len(right_arr):
+            if left_arr[i] < right_arr[j]:
+                arr[k] = left_arr[i]
+                i += 1
+            else:
+                arr[k] = right_arr[j]
+                j += 1
+            k += 1
+        # to make sure the left side is fully complete
+        while i < len(left_arr):
+            arr[k] = left_arr[i]
+            i += 1
+            k += 1
+        # to make sure the right side is fully complete
+        while j < len(right_arr):
+            arr[k] = right_arr[j]
+            j += 1
+            k += 1    
+
 #print("INSIDE THE SORTING FUNCTIONS MODULE!")
 
 if __name__ == "__main__":
@@ -53,4 +88,5 @@ if __name__ == "__main__":
     #selectionSort(lst)
     #insertionSort(lst)
     #bubbleSort(lst)
+    mergeSort(lst)
     print(lst)
