@@ -28,7 +28,7 @@ class LinkedStack():
 
     def push(self, element):
         """Add element "element" to the top of the stack"""
-        self._head = self._Node(element, self.head)
+        self._head = self._Node(element, self._head)
         self._size += 1
 
     def top(self):
@@ -49,3 +49,22 @@ class LinkedStack():
         self._head = self._head._next
         self._size -= 1
         return answer
+
+    def __str__(self):
+        if self.is_empty():
+            return 'Exception: LIST IS EMPTY!!'
+        lst = []
+        header = self._head # assign header to head so real head doesn't change
+        for i in range(len(self)): # iterate till the header is at the end
+            lst.append(header._element) # store the value of Node's Element in lst
+            header = header._next # make header the next value of the node, and iterate again
+        return str(lst)
+
+if __name__ ==  "__main__":
+    linked_list = LinkedStack()
+    linked_list.push(5)
+    linked_list.push(6)
+    linked_list.push(10)
+    linked_list.push(12)
+    linked_list.push(20)
+    print(linked_list)
