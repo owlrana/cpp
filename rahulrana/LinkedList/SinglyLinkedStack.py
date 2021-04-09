@@ -36,21 +36,22 @@ class LinkedStack():
         Raise exception Empty if the stack is empty.
         """
         if self.is_empty():
-            raise Empty("Stack is empty!")
-        return self._head.__element
+            return "Stack is empty!"
+        return self._head._element
 
     def pop(self):
         """Remove and return the element from the top of the stack.
         Raise exception Empty if the stack is empty.
         """
         if self.is_empty():
-            raise Empty("Stack is empty!")
+            return "Stack is empty!"
         answer = self._head._element
         self._head = self._head._next
         self._size -= 1
         return answer
 
     def __str__(self):
+        """Print the contents of the linked list through print() function"""
         if self.is_empty():
             return 'Exception: LIST IS EMPTY!!'
         lst = []
@@ -62,9 +63,13 @@ class LinkedStack():
 
 if __name__ ==  "__main__":
     linked_list = LinkedStack()
-    linked_list.push(5)
-    linked_list.push(6)
-    linked_list.push(10)
-    linked_list.push(12)
-    linked_list.push(20)
+    #linked_list.push(5)
+    #linked_list.push(6)
+    #linked_list.push(10)
+    #linked_list.push(12)
+    #linked_list.push(20) # testing push()
+    print(linked_list) # testing print()
+    linked_list.pop() # testing pop()
     print(linked_list)
+    print(linked_list.top()) # testing top()
+    # other functions were tested while using the above ones as they already use them under the hood
