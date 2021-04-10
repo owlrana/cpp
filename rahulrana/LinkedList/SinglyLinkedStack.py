@@ -61,15 +61,39 @@ class LinkedStack():
             header = header._next # make header the next value of the node, and iterate again
         return str(lst)
 
+    def remove(self, index):
+        """Removes the given index from the linked list."""
+        if self.is_empty():
+            return 'Exception: LIST IS EMPTY!!'
+        if len(self) < index:
+            return 'Exception: ILLEGAL INDEX NUMBER GIVEN!'
+        if index == 0:
+            if len(self) == 1:
+                self._head = None
+                self._size -= 1
+                return
+            self._head = self._head._next
+            self._size -= 1
+            return
+        header = self._head # assign header to head so real head doesn't change
+        for i in range(index - 1): # iterate till the header is at the end
+            header = header._next # make header the next value of the node, and iterate again
+        header._next = header._next._next
+        self._size -= 1
+        return
+
 if __name__ ==  "__main__":
     linked_list = LinkedStack()
-    #linked_list.push(5)
-    #linked_list.push(6)
-    #linked_list.push(10)
-    #linked_list.push(12)
-    #linked_list.push(20) # testing push()
+    linked_list.push(5)
+    linked_list.push(6)
+    linked_list.push(10)
+    linked_list.push(12)
+    linked_list.push(20) # testing push()
     print(linked_list) # testing print()
     linked_list.pop() # testing pop()
     print(linked_list)
     print(linked_list.top()) # testing top()
+    linked_list.remove(3) # testing remove()
+    print(linked_list)
+
     # other functions were tested while using the above ones as they already use them under the hood
