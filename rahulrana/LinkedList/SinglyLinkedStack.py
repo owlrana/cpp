@@ -36,7 +36,7 @@ class LinkedStack():
         Raise exception Empty if the stack is empty.
         """
         if self.is_empty():
-            return "Stack is empty!"
+            raise Exception("Stack is empty!")
         return self._head._element
 
     def pop(self):
@@ -44,7 +44,7 @@ class LinkedStack():
         Raise exception Empty if the stack is empty.
         """
         if self.is_empty():
-            return "Stack is empty!"
+            raise Exception("Stack is empty!")
         answer = self._head._element
         self._head = self._head._next
         self._size -= 1
@@ -53,7 +53,7 @@ class LinkedStack():
     def __str__(self):
         """Print the contents of the linked list through print() function"""
         if self.is_empty():
-            return 'Exception: LIST IS EMPTY!!'
+            raise Exception('Exception: LIST IS EMPTY!!')
         lst = []
         header = self._head # assign header to head so real head doesn't change
         for i in range(len(self)): # iterate till the header is at the end
@@ -64,7 +64,7 @@ class LinkedStack():
     def remove(self, index):
         """Removes the given index from the linked list."""
         if self.is_empty():
-            return 'Exception: LIST IS EMPTY!!'
+            raise Exception('Exception: LIST IS EMPTY!!')
         if len(self) < index:
             return 'Exception: ILLEGAL INDEX NUMBER GIVEN!'
         if index == 0:

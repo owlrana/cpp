@@ -28,7 +28,7 @@ class LinkedQueue:
     def first(self):
         """Return (but do not remove) the element at the front of the queue."""
         if self.is_empty():
-            print("LINKED QUEUE IS EMPTY!")
+            raise Exception("LINKED QUEUE IS EMPTY!")
         return self._head._element
 
     def dequeue(self):
@@ -36,7 +36,7 @@ class LinkedQueue:
         Raise Empty if the queue is empty
         """
         if self.is_empty():
-            print("LINKED QUEUE IS EMPTY!")
+            raise Exception("LINKED QUEUE IS EMPTY!")
         answer = self._head._element
         self._head = self._head._next
         self._size -= 1
@@ -56,7 +56,7 @@ class LinkedQueue:
     def __str__(self):
         """Print the contents of the linked list through print() function"""
         if self.is_empty():
-            return 'Exception: LIST IS EMPTY!!'
+            raise Exception('LINKED QUEUE IS EMPTY!!')
         lst = []
         header = self._head # assign header to head so real head doesn't change
         for i in range(len(self)): # iterate till the header is at the end
@@ -67,9 +67,9 @@ class LinkedQueue:
     def remove(self, index):
         """Removes the given index from the linked list."""
         if self.is_empty():
-            return 'Exception: LIST IS EMPTY!!'
+            raise Exception('Exception: LIST IS EMPTY!!')
         if len(self) < index:
-            return 'Exception: ILLEGAL INDEX NUMBER GIVEN!'
+            raise Exception('Exception: ILLEGAL INDEX NUMBER GIVEN!')
         if index == 0:
             if len(self) == 1:
                 self._head = None
