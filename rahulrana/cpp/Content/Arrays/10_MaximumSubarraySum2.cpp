@@ -1,6 +1,6 @@
 // We use mathematics to remove the 3rd loop in this algorithm
 // we create an array of cumulative sum upto the specific elements, until the end of our array
-// the we use this array to computer the sum between two indices i and j (substring sum)
+// the we use this array to compute the sum between two indices i and j (substring sum)
 // because of this, we do not need another loop now but it is solved using mathematics
 
 /*

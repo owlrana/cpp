@@ -1,4 +1,4 @@
-//  Using staircase searching in a SORTED 2D array (row and col wise sorted)
+//  Using staircase searching in a SORTED 2D array (row and col wise sorted matrix)
 /*  So we have 2 options to search:
         1. Brute force the whole array but is very costly -- O(n^2)
         2. To do binary search on each row and it should be a better approach giving -- O(N.Log(N))
