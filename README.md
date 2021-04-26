@@ -34,5 +34,7 @@ After Running:
 ## Author
 
 [Rahul Rana](https://github.com/owlrana/)
+
 [LinkedIn](https://www.linkedin.com/in/reachrahulrana/)
+
 You can mail me [here](mailto:me.rahulrana@outlook.com).
