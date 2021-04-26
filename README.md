@@ -35,6 +35,6 @@ After Running:
 
 [Rahul Rana](https://github.com/owlrana/)
 
-[LinkedIn](https://www.linkedin.com/in/reachrahulrana/)
+Connect with me on [LinkedIn](https://www.linkedin.com/in/reachrahulrana/).
 
 You can mail me [here](mailto:me.rahulrana@outlook.com).
