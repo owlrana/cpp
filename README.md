@@ -33,6 +33,8 @@ After Running:
 
 ## Author
 
-[Rahul Rana](https://github.com/owlrana)
+[Rahul Rana](https://github.com/owlrana/)
+
 [LinkedIn](https://www.linkedin.com/in/reachrahulrana/)
-[Mail]((mailto:me.rahulrana@outlook.com)
+
+[Mail](mailto:me.rahulrana@outlook.com)
