@@ -18,10 +18,11 @@ int main ()
 
     cout << *y << endl << *z << endl;
 
-    // Size of a pointer variable is same for all datatypes
-    // (4 bytes or 8 bytes depending upon the system (32/64 bit))
+    // Size of a pointer variable is same for all datatypes, but there ARE NO GUARANTEES!
+    // (Usually 4 bytes or 8 bytes depending upon the system (32/64 bit))
     // in 64 bit system all memory locations are of 64 bits and this is how much space is allocated for 
     // each block! (8 bytes)
+    // https://stackoverflow.com/questions/399003/is-the-sizeofsome-pointer-always-equal-to-four
 
     int *xptr;
     xptr = &a;
