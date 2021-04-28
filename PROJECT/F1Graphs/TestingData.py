@@ -4,6 +4,7 @@ import ssl
 import pandas as pd
 import matplotlib.pyplot as plt
 from openpyxl.workbook import Workbook
+
 # Read website content
 def url_get_contents(url):
 
@@ -23,7 +24,6 @@ def dataInitialisation():
     raceData = p.tables[1]
     
     df = pd.DataFrame(raceData)
-    df.to_csv("output.csv")  
-    df_racingdata = pd.read_csv("output.csv")
-    print(df_racingdata)
+    df.to_excel("output.xlsx")  
+    
 dataInitialisation()
