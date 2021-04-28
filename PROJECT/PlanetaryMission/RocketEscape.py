@@ -118,6 +118,14 @@ class Journey():
         print("Thrust " + self.rocket.getName().capitalize() + " can produce: " + str(self.rocket.getThrust()))
         print()
 
+# to calculate if mission successful or not
+def calculation(rocket, journey):
+    
+    thrust = rocket.getThrust()
+    distance = journey.getTripDistance()
+    
+    
+
 if __name__ == "__main__":
     # only for testing, this does not represent the package
     #printCheck()
@@ -132,3 +140,5 @@ if __name__ == "__main__":
 
     journey1 = Journey(fromPlanet, toPlanet, rocket1)
     journey1.showDetails()
+
+    calculation(rocket1, journey1)
