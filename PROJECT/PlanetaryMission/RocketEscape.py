@@ -99,7 +99,10 @@ class Journey():
         self.fromPlanet = fromPlanet.lower()
         self.toPlanet = toPlanet.lower()
         self.rocket = rocket
-        self.tripDistance = abs(float(SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.fromPlanet]]) - float(SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.toPlanet]]))
+        try:
+            self.tripDistance = abs(float(SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.fromPlanet]]) - float(SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.toPlanet]]))
+        except:
+            self.tripDistance = abs(float(SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.fromPlanet]]) - float((SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.toPlanet]])[:-1]))
 
     def getFromPlanet(self):
         return self.fromPlanet
@@ -177,11 +180,11 @@ def calculation(rocket, journey):
 if __name__ == "__main__":
     # only for testing, this does not represent the package
     #printCheck()
-    name = "big fat rocket"
-    payload = 44000000
+    name = "pigeon 10 heavy"
+    payload = 99999999
     fuel = 75000
     fromPlanet = "Earth"
-    toPlanet = "Mars"
+    toPlanet = "Mercury"
 
     rocket1 = Rocket(name, payload, fuel)
     rocket1.showDetails()
