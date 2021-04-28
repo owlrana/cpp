@@ -29,17 +29,20 @@ def dataInitialisation():
                 "saturn": 7, "uranus": 8, "neptune": 9, "pluto": 10,
                 }
 
-    rocket_dict = { "falcon 9": 549054, "falcon 9 heavy": 549054, "sn 8": 3401942, 
+    rocket_mass = { "falcon 9": 549054, "falcon 9 heavy": 549054, "sn 8": 3401942, 
                     "delta iv": 14220, "delta iv heavy": 733000,
                     }
 
-    return [solarSystemData, row_dict, col_dict, rocket_dict]
+    
+    
+    return [solarSystemData, row_dict, col_dict, rocket_mass]
 
 # Initialise Global Variables
 SOLAR_SYSTEM_DATA = dataInitialisation()[0]
 ROW_DICT = dataInitialisation()[1]
 COL_DICT = dataInitialisation()[2]
-ROCKET_DICT = dataInitialisation()[3]
+ROCKET_MASS = dataInitialisation()[3]
+POUND_TO_N = 4.448
 
 # checking input data for planets
 def printCheck():
@@ -53,7 +56,7 @@ class Rocket():
         self.name = rocketName.lower()
         self.payload = payload
         self.fuelKgs = fuelKgs
-        self.massKgs = ROCKET_DICT[self.name]
+        self.massKgs = ROCKET_MASS[self.name]
         self.totalMass = self.massKgs + self.payload + self.fuelKgs
 
     def getName(self):
