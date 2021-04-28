@@ -29,20 +29,22 @@ def dataInitialisation():
                 "saturn": 7, "uranus": 8, "neptune": 9, "pluto": 10,
                 }
 
-    rocket_mass = { "falcon 9": 549054, "falcon 9 heavy": 549054, "sn 8": 3401942, 
-                    "delta iv": 14220, "delta iv heavy": 733000,
+    rocket_mass = { "pigeon 10": 549054, "pigeon 10 heavy": 549054, "big fat rocket": 3401942, 
+                    "air captain": 14220, "air captain heavy": 733000,
                     }
 
+    rocket_thrust = {"pigeon 10": 7607000, "pigeon 10 heavy": 934000, "big fat rocket": 9900000, 
+                    "air captain": 110000, "air captain heavy": 240000,
+                    }
     
-    
-    return [solarSystemData, row_dict, col_dict, rocket_mass]
+    return [solarSystemData, row_dict, col_dict, rocket_mass, rocket_thrust]
 
 # Initialise Global Variables
 SOLAR_SYSTEM_DATA = dataInitialisation()[0]
 ROW_DICT = dataInitialisation()[1]
 COL_DICT = dataInitialisation()[2]
 ROCKET_MASS = dataInitialisation()[3]
-POUND_TO_N = 4.448
+ROCKET_THRUST = dataInitialisation()[4]
 
 # checking input data for planets
 def printCheck():
@@ -58,6 +60,7 @@ class Rocket():
         self.fuelKgs = fuelKgs
         self.massKgs = ROCKET_MASS[self.name]
         self.totalMass = self.massKgs + self.payload + self.fuelKgs
+        self.thrust = ROCKET_THRUST[self.name]
 
     def getName(self):
         return self.name
@@ -74,13 +77,17 @@ class Rocket():
     def getTotalMass(self):
         return self.totalMass
 
+    def getThrust(self):
+        return self.thrust
+
     def showDetails(self):
         print()
         print("Name of Rocket: " + self.getName().capitalize())
-        print("Fuel (in Kgs): " + str(self.getFuel))
-        print("Mass of Rocket (in Kgs): " + str(self.getMass))
-        print("Payload (in Kgs): " + str(self.getPayload))
-        print("Total Mass (in Kgs): " + str(self.getTotalMass))
+        print("Fuel (in Kgs): " + str(self.getFuel()))
+        print("Mass of Rocket (in Kgs): " + str(self.getMass()))
+        print("Payload (in Kgs): " + str(self.getPayload()))
+        print("Total Mass (in Kgs): " + str(self.getTotalMass()))
+        print("Thrust " + self.getName().capitalize() + " can produce: " + str(self.getThrust()))
         print()
 
 class Journey():
@@ -108,12 +115,13 @@ class Journey():
         print("To Planet: " + str(self.getToPlanet).capitalize())
         print("Trip Distance (in Kms): " + str((self.tripDistance)*1000000))
         print("With the Rocket: " + str(self.rocket.getName().capitalize()))
+        print("Thrust " + self.rocket.getName().capitalize() + " can produce: " + str(self.rocket.getThrust()))
         print()
 
 if __name__ == "__main__":
     # only for testing, this does not represent the package
     printCheck()
-    name = "FaLcOn 9 HEavY"
+    name = "big fat rocket"
     payload = 5000
     fuel = 10000
     fromPlanet = "Earth"
