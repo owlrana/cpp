@@ -124,7 +124,8 @@ def calculation(rocket, journey):
     thrust = rocket.getThrust()
     distance = journey.getTripDistance()
     # force experienced while launching = thrust - (mass * g1)
-     
+    thrust - rocket.getTotalMass() * float(SOLAR_SYSTEM_DATA[journey.getFromPlanet()]["gravity"])
+    print(thrust)
     # acceleration = force / mass
 
     #  t1 = (v1 - 0) / a;  ## v = escape velocity
