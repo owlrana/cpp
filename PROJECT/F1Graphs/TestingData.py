@@ -38,4 +38,4 @@ pprint(p.tables[0])
 
 # converting the parsed data to dataframe
 #print("\n\nPANDAS DATAFRAME\n")
-print(pd.DataFrame(p.tables[0]))
+print(pd.DataFrame(p.tables[1]))
