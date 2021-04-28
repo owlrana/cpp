@@ -123,19 +123,9 @@ def calculation(rocket, journey):
     
     thrust = rocket.getThrust()
     distance = journey.getTripDistance()
-    # force experienced while launching = thrust - (mass * g1) 
-    # acceleration = force / mass
-
-    #  t1 = (v1 - 0) / a;  ## v = escape velocity
-    # fuel left = initial fuel - (t1 *  some const value )
-
-    #force experienced while landing = thrust - (new mass * g2)
-
-
-    # a = F/m
-    #t2 = orbital velocity / a
-       
-    #T = t1 + t2   
+    
+    
+    # calculate fuel to be consumed by the time we leave earth
 
 if __name__ == "__main__":
     # only for testing, this does not represent the package
