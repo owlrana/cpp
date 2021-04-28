@@ -120,7 +120,7 @@ class Journey():
 
 if __name__ == "__main__":
     # only for testing, this does not represent the package
-    # printCheck()
+    #printCheck()
     name = "big fat rocket"
     payload = 5000
     fuel = 10000
