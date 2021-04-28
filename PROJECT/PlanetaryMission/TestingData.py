@@ -68,7 +68,12 @@ print("", end= "\n\n")
 for key, value in row_dict.items():
 	print(key, end=", ")
 
-print()
 col_input = input("Enter the planet name: ")
-print()
 row_input = input("Enter the data key: ")
+
+print(solarSystemData[row_dict[row_input]][col_dict[col_input]])
+# can later do print(solarSystemData[row_dict["mass"]][col_dict["mercury"]])
+
+# converting the parsed data to dataframe
+#print("\n\nPANDAS DATAFRAME\n")
+#print(pd.DataFrame(p.tables[0]))
