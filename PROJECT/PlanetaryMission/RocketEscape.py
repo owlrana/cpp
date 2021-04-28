@@ -1,5 +1,6 @@
 import urllib.request
 from html_table_parser import HTMLTableParser
+import math
 
 # Read website content
 def url_get_contents(url):
@@ -40,6 +41,9 @@ def dataInitialisation():
     return [solarSystemData, row_dict, col_dict, rocket_mass, rocket_thrust]
 
 # Initialise Global Variables
+BURNING_CONSTANT = 43919.97979797
+MASS_CONV = 1000000000000000000000000
+G = 0.0000000000667430
 SOLAR_SYSTEM_DATA = dataInitialisation()[0]
 ROW_DICT = dataInitialisation()[1]
 COL_DICT = dataInitialisation()[2]
@@ -111,8 +115,8 @@ class Journey():
 
     def showDetails(self):
         print()
-        print("From Planet: " + str(self.getFromPlanet).capitalize())
-        print("To Planet: " + str(self.getToPlanet).capitalize())
+        print("From Planet: " + str(self.fromPlanet).capitalize())
+        print("To Planet: " + str(self.toPlanet).capitalize())
         print("Trip Distance (in Kms): " + str((self.tripDistance)*1000000))
         print("With the Rocket: " + str(self.rocket.getName().capitalize()))
         print("Thrust " + self.rocket.getName().capitalize() + " can produce: " + str(self.rocket.getThrust()))
@@ -122,29 +126,60 @@ class Journey():
 def calculation(rocket, journey):
     
     thrust = rocket.getThrust()
-    distance = journey.getTripDistance()
+    
     # force experienced while launching = thrust - (mass * g1)
-    thrust - rocket.getTotalMass() * float(SOLAR_SYSTEM_DATA[journey.getFromPlanet()]["gravity"])
-    print(thrust)
-    # acceleration = force / mass
+    g1 = float(SOLAR_SYSTEM_DATA[ROW_DICT["gravity"]][COL_DICT[journey.fromPlanet]])
+    launchingForce = abs(thrust - (rocket.getTotalMass() * g1))
+    print("Launching Force in N:" +  str(launchingForce)) # in Newtons
+    
+    # acceleration = launchingForce / mass
+    acclr = launchingForce/(rocket.getTotalMass())
+    print("Acceleration while Launching in m/s^2: " + str(acclr)) # acclrn in m/s^2
 
-    #  t1 = (v1 - 0) / a;  ## v = escape velocity
+    #  t1 = (v1 - 0) / a;  ## v1 = escape velocity
+    t1 = (float(SOLAR_SYSTEM_DATA[ROW_DICT["escape velocity"]][COL_DICT[journey.fromPlanet]])) / acclr
+    print("Time taken to enter space: " + str(t1 * 60) + " seconds")
+
     # fuel left = initial fuel - (t1 *  some const value )
+    fuel_left = rocket.getFuel() - (t1 * BURNING_CONSTANT)
+    print("Fuel Left in the rocket: " + str(fuel_left))
+    print()
 
+    rocket.totalMass = rocket.totalMass - t1 * BURNING_CONSTANT
+    
     #force experienced while landing = thrust - (new mass * g2)
-
+    g2 = float(SOLAR_SYSTEM_DATA[ROW_DICT["gravity"]][COL_DICT[journey.toPlanet]])
+    landingForce = thrust - (rocket.getTotalMass() * g2)
+    print("Landing Force in N: " + str(landingForce))
 
     # a = F/m
+    landAcclr = abs(landingForce / rocket.totalMass)
+    print("Acceleration while Landing in m/s^2: " + str(landAcclr))
+    
+    # Orbital Velocity is different for each planet calculated as:  v = SQRT(G*M/R)
+    mass = float(SOLAR_SYSTEM_DATA[ROW_DICT["mass"]][COL_DICT[journey.toPlanet]])
+    radius = float(SOLAR_SYSTEM_DATA[ROW_DICT["diameter"]][COL_DICT[journey.toPlanet]]) / 2
+    orbitVel = math.sqrt((G * (mass*MASS_CONV)/36) / radius) / 10000
+    print("Orbit Velocity for landing planet: " + str(orbitVel))
+
+    print()
     #t2 = orbital velocity / a
-       
-    #T = t1 + t2   
+    t2 = (orbitVel / landAcclr)
+    print("Time taken in landing: " + str(t2*60) + " seconds")
+    
+    # fuel left = initial fuel - (t1 *  some const value )
+    fuel_left = fuel_left - (t2 * BURNING_CONSTANT)
+    print("Fuel Left after Landing: " + str(fuel_left))
+    print()
+
+    return(fuel_left)
 
 if __name__ == "__main__":
     # only for testing, this does not represent the package
     #printCheck()
     name = "big fat rocket"
-    payload = 5000
-    fuel = 10000
+    payload = 44000000
+    fuel = 75000
     fromPlanet = "Earth"
     toPlanet = "Mars"
 
@@ -154,4 +189,9 @@ if __name__ == "__main__":
     journey1 = Journey(fromPlanet, toPlanet, rocket1)
     journey1.showDetails()
 
-    calculation(rocket1, journey1)
+    fuelLeft = calculation(rocket1, journey1)
+
+    if (fuelLeft >= 100):
+        print("MISSION WILL BE SUCCESSFULL!")
+    else:
+        print("MISSION FAILED!!!")
