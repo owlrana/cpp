@@ -1,7 +1,6 @@
 import subprocess 
 
 file_object = open('message.txt', 'w')
-id_pass = []
 
 a = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8').split('\n')
 a = [i.split(":")[1][1:-1] for i in a if "All User Profile" in i]
@@ -12,9 +11,11 @@ for i in a:
 	
 	try:
 		#print("{:<30}|  {:<}".format(i, results[0]))
-		print(str(i) + " " + str(results[0]))
-
+		file_object.write(str(i) + " " + str(results[0]))
+		
 	except IndexError:
 		print("{:<30}|  {:<}".format(i, ""))
 
-a = input("")
+file_object.close()
+
+
