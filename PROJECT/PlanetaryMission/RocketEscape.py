@@ -34,10 +34,10 @@ def dataInitialisation():
 
     col_dict = {"mercury": 1, "venus": 2, "earth": 3, "moon": 4, "mars": 5, "jupiter": 6,
                 "saturn": 7, "uranus": 8, "neptune": 9, "pluto": 10,
-    }
+                }
 
-    rocket_dict = { "Falcon 9": 549054, "Falcon 9 Heavy": 549054, "SN 8": 3401942, 
-                    "Delta IV": 14220, "Delta IV Heavy": 733000,
+    rocket_dict = { "falcon 9": 549054, "falcon 9 heavy": 549054, "sn 8": 3401942, 
+                    "delta iv": 14220, "delta iv heavy": 733000,
                     }
 
     return [solarSystemData, row_dict, col_dict, rocket_dict]
@@ -49,20 +49,32 @@ COL_DICT = dataInitialisation()[2]
 ROCKET_DICT = dataInitialisation()[3]
 
 def printCheck():
-    col = input("Enter the name ofk planet: ")
-    row = input("Enter information you want: ")
-    print(SOLAR_SYSTEM_DATA[ROW_DICT[row]][COL_DICT[col]])
+    col = (input("Enter the name of planet: ")).lower()
+    row = (input("Enter information you want: ")).lower()
+    print("--> " + str(SOLAR_SYSTEM_DATA[ROW_DICT[row]][COL_DICT[col]]))
 
 class Rocket():
     def __init__(self, rocketName, payload, fuelKgs):
-        self.name = rocketName
+        self.name = rocketName.lower()
         self.payload = payload
         self.fuelKgs = fuelKgs
-        self.massKgs = ROCKET_DICT[rocketName]
-        self.totalMass = self.massKgs + self.payload
+        self.massKgs = ROCKET_DICT[self.name]
+        self.totalMass = self.massKgs + self.payload + self.fuelKgs
 
-    def change_name(self, new_name):
-        self.name = new_name
+    def showDetails(self):
+        print()
+        print("Name of Rocket: " + str(self.name).capitalize())
+        print("Fuel (in Kgs): " + str(self.fuelKgs))
+        print("Mass of Rocket (in Kgs): " + str(self.massKgs))
+        print("Payload (in Kgs): " + str(self.payload))
+        print("Total MASS (in Kgs): " + str(self.totalMass))
+        print()
 
 if __name__ == "__main__":
+    # only for testing, this does not represent the package
     printCheck()
+    name = "FaLcOn 9 HEavY"
+    payload = 5000
+    fuel = 10000
+    rocket1 = Rocket(name, payload, fuel)
+    rocket1.showDetails()
