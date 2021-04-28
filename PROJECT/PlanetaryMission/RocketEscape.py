@@ -1,20 +1,13 @@
 import urllib.request
 from html_table_parser import HTMLTableParser
 
-# Opens a website and read its binary contents (HTTP Response Body)
+# Read website content
 def url_get_contents(url):
-
-    # Opens a website and read its
-    # binary contents (HTTP Response Body)
-
-    #making request to the website
     req = urllib.request.Request(url=url)
     f = urllib.request.urlopen(req)
-
-    #reading contents of the website
     return f.read()
 
-# to initialise and return table, column and row information
+# return data for global use
 def dataInitialisation():
     xhtml = url_get_contents('https://nssdc.gsfc.nasa.gov/planetary/factsheet/').decode('utf-8')
     p = HTMLTableParser()
@@ -42,17 +35,19 @@ def dataInitialisation():
 
     return [solarSystemData, row_dict, col_dict, rocket_dict]
 
-# Store as Global Variables to use everywhere
+# Initialise Global Variables
 SOLAR_SYSTEM_DATA = dataInitialisation()[0]
 ROW_DICT = dataInitialisation()[1]
 COL_DICT = dataInitialisation()[2]
 ROCKET_DICT = dataInitialisation()[3]
 
+# checking input data for planets
 def printCheck():
     col = (input("Enter the name of planet: ")).lower()
     row = (input("Enter information you want: ")).lower()
     print("--> " + str(SOLAR_SYSTEM_DATA[ROW_DICT[row]][COL_DICT[col]]))
 
+# Rocket class with necessary attributes
 class Rocket():
     def __init__(self, rocketName, payload, fuelKgs):
         self.name = rocketName.lower()
