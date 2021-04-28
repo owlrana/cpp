@@ -1,15 +1,13 @@
 # Library for opening url and creating requests
 import urllib.request
-
 # pretty-print python data structures
 from pprint import pprint
-
-# for parsing all the tables present on the website
-from html_table_parser import HTMLTableParser
 
 # for converting the parsed data in a
 # pandas dataframe
 import pandas as pd
+# for parsing all the tables present on the website
+from html_table_parser import HTMLTableParser
 
 
 # Opens a website and read its
@@ -61,19 +59,7 @@ col_dict = {"mercury": 1, "venus": 2, "earth": 3, "moon": 4, "mars": 5, "jupiter
 			"saturn": 7, "uranus": 8, "neptune": 9, "pluto": 10,
 			}
 
-print()
-for key, value in col_dict.items():
-	print(key, end=", ")
-print("", end= "\n\n")
-for key, value in row_dict.items():
-	print(key, end=", ")
-
-col_input = input("Enter the planet name: ")
-row_input = input("Enter the data key: ")
-
-print(solarSystemData[row_dict[row_input]][col_dict[col_input]])
-# can later do print(solarSystemData[row_dict["mass"]][col_dict["mercury"]])
-
-# converting the parsed data to dataframe
+# converting the parsed data to
+# datframe
 #print("\n\nPANDAS DATAFRAME\n")
-#print(pd.DataFrame(p.tables[0]))
+print(pd.DataFrame(p.tables[0]))
