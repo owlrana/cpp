@@ -56,13 +56,55 @@ class Rocket():
         self.massKgs = ROCKET_DICT[self.name]
         self.totalMass = self.massKgs + self.payload + self.fuelKgs
 
+    def getName(self):
+        return self.name
+
+    def getFuel(self):
+        return self.fuelKgs
+
+    def getMass(self):
+        return self.massKgs
+
+    def getPayload(self):
+        return self.payload
+
+    def getTotalMass(self):
+        return self.totalMass
+
     def showDetails(self):
         print()
-        print("Name of Rocket: " + str(self.name).capitalize())
-        print("Fuel (in Kgs): " + str(self.fuelKgs))
-        print("Mass of Rocket (in Kgs): " + str(self.massKgs))
-        print("Payload (in Kgs): " + str(self.payload))
-        print("Total MASS (in Kgs): " + str(self.totalMass))
+        print("Name of Rocket: " + self.getName().capitalize())
+        print("Fuel (in Kgs): " + str(self.getFuel))
+        print("Mass of Rocket (in Kgs): " + str(self.getMass))
+        print("Payload (in Kgs): " + str(self.getPayload))
+        print("Total Mass (in Kgs): " + str(self.getTotalMass))
+        print()
+
+class Journey():
+    def __init__(self, fromPlanet, toPlanet, rocket):
+        self.fromPlanet = fromPlanet.lower()
+        self.toPlanet = toPlanet.lower()
+        self.rocket = rocket
+        self.tripDistance = abs(float(SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.fromPlanet]]) - float(SOLAR_SYSTEM_DATA[ROW_DICT["distance from sun"]][COL_DICT[self.toPlanet]]))
+
+    def getFromPlanet(self):
+        return self.fromPlanet
+
+    def getToPlanet(self):
+        return self.toPlanet
+
+    def getRocket(self):
+        return self.rocket
+
+    def getTripDistance(self):
+        return self.tripDistance
+
+    def showDetails(self):
+        print()
+        print("From Planet: " + str(self.getFromPlanet).capitalize())
+        print("To Planet: " + str(self.getToPlanet).capitalize())
+        print("Trip Distance (in Kms): " + str((self.tripDistance)*1000000))
+        print("With the Rocket: " + str(self.rocket.getName().capitalize()))
         print()
 
 if __name__ == "__main__":
@@ -71,5 +113,11 @@ if __name__ == "__main__":
     name = "FaLcOn 9 HEavY"
     payload = 5000
     fuel = 10000
+    fromPlanet = "Earth"
+    toPlanet = "Mars"
+
     rocket1 = Rocket(name, payload, fuel)
     rocket1.showDetails()
+
+    journey1 = Journey(fromPlanet, toPlanet, rocket1)
+    journey1.showDetails()
