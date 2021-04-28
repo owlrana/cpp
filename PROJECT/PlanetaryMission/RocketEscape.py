@@ -1,12 +1,5 @@
 import urllib.request
-from pprint import pprint
 from html_table_parser import HTMLTableParser
-import pandas as pd
-
-# Store as Global Variables to use everywhere
-SOLAR_SYSTEM_DATA = dataInitialisation()[0]
-ROW_DICT = dataInitialisation()[1]
-COL_DICT = dataInitialisation()[2]
 
 # Opens a website and read its binary contents (HTTP Response Body)
 def url_get_contents(url):
@@ -43,5 +36,33 @@ def dataInitialisation():
                 "saturn": 7, "uranus": 8, "neptune": 9, "pluto": 10,
     }
 
-    return [solarSystemData, row_dict, col_dict]
+    rocket_dict = { "Falcon 9": 549054, "Falcon 9 Heavy": 549054, "SN 8": 3401942, 
+                    "Delta IV": 14220, "Delta IV Heavy": 733000,
+                    }
 
+    return [solarSystemData, row_dict, col_dict, rocket_dict]
+
+# Store as Global Variables to use everywhere
+SOLAR_SYSTEM_DATA = dataInitialisation()[0]
+ROW_DICT = dataInitialisation()[1]
+COL_DICT = dataInitialisation()[2]
+ROCKET_DICT = dataInitialisation()[3]
+
+def printCheck():
+    col = input("Enter the name ofk planet: ")
+    row = input("Enter information you want: ")
+    print(SOLAR_SYSTEM_DATA[ROW_DICT[row]][COL_DICT[col]])
+
+class Rocket():
+    def __init__(self, rocketName, payload, fuelKgs):
+        self.name = rocketName
+        self.payload = payload
+        self.fuelKgs = fuelKgs
+        self.massKgs = ROCKET_DICT[rocketName]
+        self.totalMass = self.massKgs + self.payload
+
+    def change_name(self, new_name):
+        self.name = new_name
+
+if __name__ == "__main__":
+    printCheck()
