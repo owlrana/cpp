@@ -19,6 +19,10 @@ bool packageable (vector<int> &weights, int size, int d, int curr_min)
             if (weights[i] > curr_min)
                 return false;
         */
+
+        if (weights[i] > curr_min)
+            return false;
+        
         if (pack + weights[i] > curr_min)
         {
             num ++;
@@ -38,10 +42,10 @@ bool packageable (vector<int> &weights, int size, int d, int curr_min)
 
 int main ()
 {
-    vector <int> weights {3,2,2,4,1,4}; // weight of packages
+    vector <int> weights {1,2,3,1,1}; // weight of packages
     int size = weights.size();
 
-    int d = 3; // days limit
+    int d = 4; // days limit
 
     // binary approach for deciding mid as min pages
     int sum = 0;
@@ -49,7 +53,7 @@ int main ()
     for (int i = 0; i < size; i ++)
         sum += weights[i];
 
-    int s = weights[size - 1];
+    int s = 0;
     int e = sum;
     int ans = INT_MAX;
 

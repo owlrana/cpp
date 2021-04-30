@@ -68,8 +68,8 @@ int findPage(vector<int> &arr, int n, int m)
 
 int main ()
 {
-    int n= 6, m= 3;
-    vector <int> arr {3,2,2,4,1,4};
+    int n= 5, m= 4;
+    vector <int> arr {1,2,3,1,1};
 
     cout << findPage(arr, n, m) << endl;
 
