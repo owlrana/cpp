@@ -26,6 +26,15 @@
                 0 ^ 1 = 1
                 1 ^ 0 = 1
                 0 ^ 0 = 0
+            
+            XOR of a num with itself is always 0;
+            XOR of a num with 0 is always the num itself;
+            XOR follows Associative & Commutative properties;
+
+            RUNNING XOR OPERATION ON AN ARRAY:
+            If you have an array that has 'n' numbers 2 times, and only single number 'a' once,
+            Then you can find the running XOR of all numbers, and only the number which appeared once
+            will be the answer to be returned.
 
         5. "<<" ">>" Shift operators.
             Shifts bits to the left or the right. Inserts new bits as zero.
@@ -43,10 +52,19 @@
             Similarly, shifting left by 2 places is like multiplying a number by 4.
             Generally:
                     Shifting a's bits to left by value 'b' means ==>
-                        a << b == > ( a*(2^b) )
+                        a << b ==> ( a * (2^b) )
 
             THE REVERSE IS NOT TRUE!
-            Shifting bits to the right does not always half the value (in case of odd numbers ofc) 
+            Shifting bits to the right does not always half the value (in case of odd numbers ofc)
+            but it is like dividing by 2^b (where b is the number by which the bits were shift)
+            Eg. 10 ( 01010 ) >> 1 ==> 5 ( 00101 )
+                5 ( 00101 ) >> 1 ==> 2 ( 00010 )
+                2 ( 00010 ) >> 1 ==> 1 ( 00001 )
+                1 ( 00001 ) >> 1 ==> 0 ( 00000 )
+            Generally:
+                    Shifting a's bits to the right by value 'b' means ==>
+                        a >> b ==> ( a / (2^b) )
+
 
 
 
