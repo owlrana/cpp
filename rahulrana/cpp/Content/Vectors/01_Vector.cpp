@@ -1,3 +1,10 @@
+/*
+    POINT TO NOTE:
+    When we pass a vector into the function, a copy is created.
+    It is not like arrays, when the pointer is papssed.
+    This, has a copy in the function's scope.
+*/
+
 // This file shows the use of vector datatype and how you can initialise its objects
 
 # include <iostream>
